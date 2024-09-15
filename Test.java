@@ -1,16 +1,18 @@
-//package com.mycompany.library;
 
+package com.mycompany.library;
+import java.util.Calendar;
 public class Test {
     public static void main(String[] args)
     {
+        //Date's tests
+        Calendar loanDate = Calendar.getInstance();
+        Calendar returnDate = Calendar.getInstance();
+        loanDate.set(2024, 9, 14);
+        returnDate.set(2024, 9, 21);
         // testing create Book instance
-        Book book1 = new Book("Harry Potter", "JK Rowling", "12345@#01");
-        System.out.println(book1);
-        // testing the setStatus at the enum constant BookStatus by book1;
-        book1.setStatus(BookStatus.UNAVAILABLE);
-        System.out.println(book1);
-        // testing any methods book1
-        System.out.println("The book " + book1.getTitle() + 
-        " currently have " + book1.getStatus() + " status");
+        Book bookTest = new Book("Harry Potter", "JK Rowling", "12345@#01");
+        User userTest = new User(1, "Sayd", UserType.STUDENT);
+        Loan loanTest = new Loan(userTest, bookTest, loanDate, returnDate);
+        System.out.println(loanTest);
     }
 }
